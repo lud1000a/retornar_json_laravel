@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -179,7 +180,12 @@ class EventController extends Controller
 
     public function todos(){
 
-        return Event::all('title', 'id', 'description', 'city')->toJson(); 
-         
+        return Event::all('title', 'id', 'description', 'city', 'image')->toJson();     
     }
+    public function unique($id){
+
+        return Event::all('title', 'id', 'description', 'city', 'image')->where('id', $id)->toJson();     
+    }
+
+
 }

@@ -22,15 +22,18 @@
           <div class="collapse navbar-collapse" id="navbar">
             <a href="/" class="navbar-brand">
               <img src="/img/hdcevents_logo.svg" alt="HDC Events">
-            </a>
+              @auth
+              <span>Name: {{auth()->user()->name}}   ID: {{auth()->user()->id}}</span>
+              @endauth
+            </a>  
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a href="/" class="nav-link">Eventos</a>
               </li>
+              @auth
               <li class="nav-item">
                 <a href="/events/create" class="nav-link">Criar Eventos</a>
               </li>
-              @auth
               <li class="nav-item">
                 <a href="/dashboard" class="nav-link">Meus eventos</a>
               </li>
